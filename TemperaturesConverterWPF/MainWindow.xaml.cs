@@ -20,7 +20,7 @@ namespace TemperaturesConverterWPF
 
         private void btnConverter_Click(object sender, RoutedEventArgs e)
         {
-            5decimal chislo = Convert.ToDecimal(txtTemperatureSet.Text);
+            decimal chislo = Convert.ToDecimal(txtTemperatureSet.Text);
             string choice = Convert.ToString(txtChoice.Text);
             if(choice == "C")
             {
