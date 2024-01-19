@@ -1,0 +1,17 @@
+﻿<Window x:Class="TemperaturesConverterWPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TemperaturesConverterWPF"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <TextBox x:Name="txtTemperatureSet" HorizontalAlignment="Left" Margin="10,73,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="txtChoice" HorizontalAlignment="Left" Margin="10,180,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Label x:Name="lblSetTemperature" Content="Введите температуру:" HorizontalAlignment="Left" Margin="10,42,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lblChoice" Content="Во что хотите конвертировать? F-градусы Фаренгейта, C-градусы Цельсия" HorizontalAlignment="Left" Margin="10,149,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="btnConverter" Content="Конвертировать" HorizontalAlignment="Left" Margin="10,318,0,0" VerticalAlignment="Top" Click="btnConverter_Click"/>
+
+    </Grid>
+</Window>

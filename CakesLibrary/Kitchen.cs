@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CakesAdvanced.Models
+namespace CakesLibrary.Models
 {
-    internal class Kitchen
+    public class Kitchen
     {
         private Storage _storage;
         private Workshop _workshop;
@@ -19,7 +19,7 @@ namespace CakesAdvanced.Models
             _workshop = new Workshop();
         }
 
-        internal Dictionary<string, Dictionary<string, int>> GetAvailableRecipes()
+        public Dictionary<string, Dictionary<string, int>> GetAvailableRecipes()
         {
             Dictionary<string, Dictionary<string, int>> allRecipes = _workshop.GetAllRecipes();
             Dictionary<string, Dictionary<string, int>> availableRecipes = new Dictionary<string, Dictionary<string, int>>();
