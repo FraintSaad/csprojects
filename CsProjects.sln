@@ -31,6 +31,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TemperaturesConverterWPF", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WeatherJournalWPF", "WeatherJournalWPF\WeatherJournalWPF.csproj", "{D9A9BA20-D442-4A6D-891D-AB63C9958047}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JournalLibrary", "JournalLibrary\JournalLibrary.csproj", "{0DA68003-9FFD-41D9-A2A6-AC4140088FCC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -77,6 +79,10 @@ Global
 		{D9A9BA20-D442-4A6D-891D-AB63C9958047}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D9A9BA20-D442-4A6D-891D-AB63C9958047}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D9A9BA20-D442-4A6D-891D-AB63C9958047}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0DA68003-9FFD-41D9-A2A6-AC4140088FCC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0DA68003-9FFD-41D9-A2A6-AC4140088FCC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0DA68003-9FFD-41D9-A2A6-AC4140088FCC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0DA68003-9FFD-41D9-A2A6-AC4140088FCC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -92,6 +98,7 @@ Global
 		{CF6261EF-E362-4555-A3DE-5DAA0130F3F9} = {EBD06031-B319-4401-A70C-4EC85979908D}
 		{D321AD9D-218B-461E-ACD5-BBAFFBEEB60C} = {EBD06031-B319-4401-A70C-4EC85979908D}
 		{D9A9BA20-D442-4A6D-891D-AB63C9958047} = {EBD06031-B319-4401-A70C-4EC85979908D}
+		{0DA68003-9FFD-41D9-A2A6-AC4140088FCC} = {AD31E6DD-09C7-4E8D-AE38-4E2199882F99}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {DF4406F7-5F21-44A5-B44B-1980BDA2C418}
