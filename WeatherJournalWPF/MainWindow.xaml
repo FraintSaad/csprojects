@@ -6,10 +6,16 @@
         xmlns:local="clr-namespace:WeatherJournalWPF"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        <RadioButton x:Name="rdbDataRead" Content="Чтение данных" HorizontalAlignment="Left" Margin="219,129,0,0" VerticalAlignment="Top"/>
-        <RadioButton x:Name="rdbDataWrite" Content="Заись данных" HorizontalAlignment="Left" Margin="479,129,0,0" VerticalAlignment="Top"/>
-        <Label Content="Выберите режим работы" HorizontalAlignment="Center" Margin="0,78,0,0" VerticalAlignment="Top"/>
+    <StackPanel>
+        <ListView Height="385" d:ItemsSource="{d:SampleData ItemCount=5}">
+            <ListView.View>
 
-    </Grid>
+                <GridView>
+                    <GridViewColumn/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Button Content="Button" HorizontalAlignment="Right" Margin="10" Padding="5"/>
+
+    </StackPanel>
 </Window>
