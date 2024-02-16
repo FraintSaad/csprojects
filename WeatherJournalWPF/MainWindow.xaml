@@ -5,17 +5,41 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WeatherJournalWPF"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <StackPanel>
-        <ListView Height="385" ItemsSource="{Binding JournalEntrys}">
-            <ListView.View>
+        Title="Журнал погоды" Height="330" Width="600" ResizeMode="NoResize">
 
-                <GridView>
-                    <GridViewColumn/>
-                </GridView>
-            </ListView.View>
-        </ListView>
-        <Button Content="Button" HorizontalAlignment="Right" Margin="10" Padding="5"/>
+    <Grid >
 
-    </StackPanel>
+        <TabControl>
+            <TabItem Header="Запись">
+                <StackPanel>
+                    <Label  Content="Дата" Width="500" HorizontalAlignment="Left"/>
+                    <TextBox x:Name="txtData" Width="500" HorizontalAlignment="Left"/>
+                    <Label  Content="Температура" Width="500" HorizontalAlignment="Left"/>
+                    <TextBox x:Name="txtTemperature" Width="500" HorizontalAlignment="Left"/>
+                    <Label  Content="Влажность" Width="500" HorizontalAlignment="Left"/>
+                    <TextBox x:Name="txtHumidity" Width="500" HorizontalAlignment="Left"/>
+                    <Label  Content="Описание погоды" Width="500" HorizontalAlignment="Left"/>
+                    <ComboBox x:Name="cmbDescription" Width="500" HorizontalAlignment="Left">
+                        <ComboBoxItem Content="Солнечно" IsSelected="True"/>
+                        <ComboBoxItem Content="Дождь"/>
+                        <ComboBoxItem Content="Снег"/>
+                        <ComboBoxItem Content="Облачно"/>
+                    </ComboBox>
+                    <Button x:Name="btnAddEntry" Content="Добавить запись" Click="btnAddEntry_Click"
+            HorizontalAlignment="Right" VerticalAlignment="Stretch" Padding="10" Margin="10, 30, 10, 0"/>
+                </StackPanel>
+            </TabItem>
+            <TabItem Header="Чтение">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Label  Content="Данные о погоде" Grid.Row="0"/>
+                    <TextBox Grid.Row="1" TextWrapping="Wrap" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                </Grid>
+            </TabItem>
+        </TabControl>
+
+    </Grid>
 </Window>
