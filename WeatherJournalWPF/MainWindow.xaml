@@ -35,8 +35,19 @@
                         <RowDefinition Height="Auto"/>
                         <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
-                    <Label  Content="Данные о погоде" Grid.Row="0"/>
-                    <TextBox Grid.Row="1" TextWrapping="Wrap" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                    <Label Content="Данные о погоде" Grid.Row="0"/>
+                    <ListBox Name ="LstJournal" ItemsSource="{Binding JournalEntries}" Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel>
+                                    <TextBlock Text="{Binding Date}" />
+                                    <TextBlock Text="{Binding Temperature}" />
+                                    <TextBlock Text="{Binding Humidity}" />
+                                    <TextBlock Text="{Binding Description}" />
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
                 </Grid>
             </TabItem>
         </TabControl>

@@ -25,12 +25,12 @@ namespace JournalLibrary
             SaveJournalEntries();
         }
 
-        private JournalEntry? FindJournalEntryByDate(DateTime date)
+        public JournalEntry? FindJournalEntryByDate(DateTime date)
         {
             return _allEntries.Find(i => i.Date == date);
         }
 
-        private JournalEntry GetJournalEntryById(string id)
+        public JournalEntry GetJournalEntryById(string id)
         {
             return _allEntries.First(i => i.Id == id);
         }
@@ -54,7 +54,7 @@ namespace JournalLibrary
             }
             _allEntries = loadedEntries;
         }
-        private void SaveJournalEntries()
+        public void SaveJournalEntries()
         {
             string serializedJournalEntrys = JsonConvert.SerializeObject(_allEntries, Formatting.Indented);
             File.WriteAllText(Constants.PATH_JOURNAL_ENTRIES, serializedJournalEntrys);
