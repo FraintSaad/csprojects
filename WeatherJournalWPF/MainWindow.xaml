@@ -1,0 +1,56 @@
+﻿<Window x:Class="WeatherJournalWPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WeatherJournalWPF"
+        mc:Ignorable="d"
+        Title="Журнал погоды" Height="330" Width="600" ResizeMode="NoResize">
+
+    <Grid >
+
+        <TabControl>
+            <TabItem Header="Запись">
+                <StackPanel>
+                    <Label  Content="Дата" Width="500" HorizontalAlignment="Left"/>
+                    <TextBox x:Name="txtData" Width="500" HorizontalAlignment="Left"/>
+                    <Label  Content="Температура" Width="500" HorizontalAlignment="Left"/>
+                    <TextBox x:Name="txtTemperature" Width="500" HorizontalAlignment="Left"/>
+                    <Label  Content="Влажность" Width="500" HorizontalAlignment="Left"/>
+                    <TextBox x:Name="txtHumidity" Width="500" HorizontalAlignment="Left"/>
+                    <Label  Content="Описание погоды" Width="500" HorizontalAlignment="Left"/>
+                    <ComboBox x:Name="cmbDescription" Width="500" HorizontalAlignment="Left">
+                        <ComboBoxItem Content="Солнечно" IsSelected="True"/>
+                        <ComboBoxItem Content="Дождь"/>
+                        <ComboBoxItem Content="Снег"/>
+                        <ComboBoxItem Content="Облачно"/>
+                    </ComboBox>
+                    <Button x:Name="btnAddEntry" Content="Добавить запись" Click="btnAddEntry_Click"
+            HorizontalAlignment="Right" VerticalAlignment="Stretch" Padding="10" Margin="10, 30, 10, 0"/>
+                </StackPanel>
+            </TabItem>
+            <TabItem Header="Чтение">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Label Content="Данные о погоде" Grid.Row="0"/>
+                    <ListBox Name ="LstJournal" ItemsSource="{Binding JournalEntries}" Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel>
+                                    <TextBlock Text="{Binding Date}" />
+                                    <TextBlock Text="{Binding Temperature}" />
+                                    <TextBlock Text="{Binding Humidity}" />
+                                    <TextBlock Text="{Binding Description}" />
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                </Grid>
+            </TabItem>
+        </TabControl>
+
+    </Grid>
+</Window>

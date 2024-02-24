@@ -1,17 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Zoo.Models
+﻿namespace Zoo.Models
 {
     internal class Lion : Animal
     {
-        public void Roar()
-        {
-            Console.WriteLine("1ааакъ");
-        }
+        public string Nickname = "lionchik";
         public override void Move()
         {
             Console.WriteLine($"Lion {Name} moved");
@@ -19,9 +10,17 @@ namespace Zoo.Models
 
         public override void MakeSound()
         {
-            Console.WriteLine("LionSound");
+            Console.WriteLine("Рык рык");
         }
 
-        public Lion(string name) : base(name) { }
+        public void Jump()
+        {
+            Console.WriteLine("I am jumping!");
+        }
+
+        public Lion(string name) : base(name)
+        {
+
+        }
     }
 }

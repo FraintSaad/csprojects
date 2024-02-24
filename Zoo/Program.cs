@@ -1,4 +1,5 @@
 ﻿using ConsoleUtils;
+using Zoo.Models;
 
 namespace Zoo
 {
@@ -7,16 +8,13 @@ namespace Zoo
 
         static void Main(string[] args)
         {
-            Console.Write("Введите число: ");
-            double? whatever = InputService.GetDouble();
-            if (whatever == null)
-            {
-                return;
-            }
+            List<Animal> animals = new List<Animal>();
 
-            Console.WriteLine("Спасибо!");
+            Animal lev = new Lion("Лев");
+            Animal elephant = new Elephant("Слон");
+
+            animals.Add(lev);
+            animals.Add(elephant);
         }
-
-
     }
 }
