@@ -30,7 +30,7 @@ namespace JournalLibrary
             return _allEntries.Find(i => i.Date == date);
         }
 
-        public JournalEntry GetJournalEntryById(string id)
+        public JournalEntry GetJournalEntryById(int id)
         {
             return _allEntries.First(i => i.Id == id);
         }
