@@ -14,9 +14,14 @@
 
 
 <div class="tabs">
-
-    <button @onclick="ShowManagerTab">Manager</button>
-    <button @onclick="ShowClientTab">Client</button>
+    <ul class="nav nav-tabs">
+        <li class="nav-item">
+            <button class="nav-link" @onclick="ShowManagerTab">Manager</button>
+        </li>
+        <li class="nav-item">
+            <button class="nav-link" @onclick="ShowClientTab">Client</button>
+        </li>
+    </ul>
 
     @if (currentTab == "Client")
     {
