@@ -35,7 +35,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JournalLibrary", "JournalLi
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WEB", "WEB", "{95CBD12A-EEA9-4BCA-A4E9-2A81C9A0482D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CakesBlazor", "CakesBlazor\CakesBlazor.csproj", "{07398F30-9E91-48DD-B4A1-9887CB934606}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CakesBlazor", "CakesBlazor\CakesBlazor.csproj", "{07398F30-9E91-48DD-B4A1-9887CB934606}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
