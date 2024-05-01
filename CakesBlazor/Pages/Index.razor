@@ -1,0 +1,163 @@
+﻿@using System.Collections.ObjectModel
+@using CakesLibrary.Models
+@using System.Diagnostics
+
+@page "/"
+
+<PageTitle>Index</PageTitle>
+
+<p>@msgBoxMessage</p>
+
+<h1>Сonfectionery</h1>
+
+
+
+<div class="tabs">
+    <ul class="nav nav-tabs">
+        <li class="nav-item">
+            <button class="nav-link" @onclick="ShowManagerTab">Мэнеджер</button>
+        </li>
+        <li class="nav-item">
+            <button class="nav-link" @onclick="ShowClientTab">Клиент</button>
+        </li>
+    </ul>
+
+    @if (currentTab == "Client")
+    {
+        <div style="background-color: #E5E5E5; padding: 10px; border-radius: 5px; margin-top: 10px">
+            <h4>Доступные рецепты:</h4>
+            <div>
+                @foreach (var recipe in _kitchen.GetAvailableRecipes())
+                {
+                    <div>@recipe</div>
+                }
+            </div>
+            <div style="margin-top: 10px;">
+                <h5>Заказать торт:</h5>
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" placeholder="Название торта" @bind="_cakeName" />
+                    <div class="input-group-append">
+                        <button class="btn btn-primary" type="button" @onclick="TakeOrder">Заказать</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+    @if (currentTab == "Manager")
+    {
+        <div style="background-color: #E5E5E5; padding: 10px; border-radius: 5px; margin-top: 10px">
+            <h4>Ингредиенты на складе:</h4>
+            <div>
+                @foreach (var ingredient in _storage.GetAllIngredients())
+                {
+                    <div>@ingredient.Name - @ingredient.Quantity</div>
+                }
+            </div>
+            <div style="margin-top: 10px;">
+                <h5>Добавить ингредиент:</h5>
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control col me-2" placeholder="Название ингредиента" @bind="_ingredientName" />
+                    <input type="number" class="form-control col me-2" placeholder="Цена ингредиента" @bind="_ingredientPrice" />
+                    <input type="number" class="form-control col me-2" placeholder="Количество ингредиента" @bind="_ingredientQuantity" />
+                    <div class="input-group-append">
+                        <button class="btn btn-primary" type="button" @onclick="AddIngredient">Добавить</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+
+</div>
+
+
+@code {
+    public ObservableCollection<Ingredient> Ingredients { get; set; } = new ObservableCollection<Ingredient>();
+    public ObservableCollection<string> Recipes { get; set; } = new ObservableCollection<string>();
+    private Storage _storage;
+    private Kitchen _kitchen;
+
+    private string msgBoxMessage = "";
+    private string _cakeName;
+    private int _ingredientPrice;
+    private int _ingredientQuantity;
+    private string _ingredientName;
+
+    private string currentTab = "Manager";
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+
+        _storage = new Storage();
+        _kitchen = new Kitchen(_storage);
+        UpdateIngredientsView();
+        UpdateRecipesView();
+    }
+
+    private void AddIngredient()
+    {
+        var ingredient = new Ingredient();
+        ingredient.Name = _ingredientName;
+        ingredient.Cost = Convert.ToDecimal(_ingredientPrice);
+        ingredient.Quantity = Convert.ToInt32(_ingredientQuantity);
+        _storage.AddIngredients(ingredient);
+        UpdateIngredientsView();
+
+    }
+
+    private async Task TakeOrder()
+    {
+        string cakeName = _cakeName;
+        if (string.IsNullOrEmpty(cakeName))
+        {
+            msgBoxMessage = ("Нужно что-то нормальное");
+            return;
+        }
+
+        try
+        {
+            msgBoxMessage = ("Готовим!");
+            await _kitchen.MakeCake(cakeName);
+
+        }
+        catch (Exception ex)
+        {
+            msgBoxMessage = (ex.Message);
+            Debug.WriteLine(ex.Message);
+        }
+    }
+
+    void ShowManagerTab()
+    {
+        currentTab = "Manager";
+    }
+
+    void ShowClientTab()
+    {
+        currentTab = "Client";
+    }
+    private async Task btnTakeOrder(object sender)
+    {
+        await TakeOrder();
+    }
+
+    private void UpdateRecipesView()
+    {
+        Recipes.Clear();
+        var avaibleRecipes = _kitchen.GetAvailableRecipes().Keys;
+
+        foreach (var recipe in avaibleRecipes)
+        {
+            Recipes.Add(recipe);
+        }
+    }
+    private void UpdateIngredientsView()
+    {
+        Ingredients.Clear();
+        var availableIngredients = _storage.GetAllIngredients();
+        foreach (var ingredient in availableIngredients)
+        {
+            Ingredients.Add(ingredient);
+        }
+    }
+}
+    

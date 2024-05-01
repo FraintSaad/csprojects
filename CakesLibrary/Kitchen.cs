@@ -38,7 +38,7 @@ namespace CakesLibrary.Models
             }
             return availableRecipes;
         }
-        public async void MakeCake(string cakeName)
+        public async Task MakeCake(string cakeName)
         {
             Dictionary<string, Dictionary<string, int>> availableRecipe = GetAvailableRecipes();
             var recipe=availableRecipe.FirstOrDefault(recipe => recipe.Key.ToLower() == cakeName.ToLower());
