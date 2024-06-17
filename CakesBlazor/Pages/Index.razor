@@ -29,7 +29,7 @@
             <div>
                 @foreach (var recipe in _kitchen.GetAvailableRecipes())
                 {
-                    <div>@recipe</div>
+                    <div>@recipe.Key</div>
                 }
             </div>
             <div style="margin-top: 10px;">
